@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block message %}
+    <hr />
+    <h4 class="text-center">Article Recommendations for user:</h4>
+    <p class="text-center"><i>{{query}}</i></p>
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Read Articles</h1>
+        <ul class="list-group">
+            {% for article in read_articles %}
+                <li class="list-group-item list-group-item-success text-center">{{article}}</li>
+            {% endfor %}
+        </div>
+    </div>
+    <h1 class="text-center">Recommended Articles</h1>
+        <ul class="list-group">
+            {% for article in rec_articles %}
+                <li class="list-group-item list-group-item-success text-center">{{article}}</li>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content%}
