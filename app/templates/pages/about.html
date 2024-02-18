@@ -1,79 +1,65 @@
 {% extends 'base.html' %}
 
+{% block title %}About{% endblock %}
+
 {% block header %}
-  <h2>{% block title %}About{% endblock title %}</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam risus nulla,
-    tempus ac elit molestie, viverra congue nisi. Ut gravida eleifend nulla 
-    eu tristique. Mauris tincidunt faucibus gravida. Phasellus egestas cursus
-    fringilla. Aenean a volutpat felis. Donec libero turpis, dignissim eu 
-    gravida at, cursus eu neque.</p>
+  <h2>About the Article Recommender Project</h2>
+  <p>This project aims to recommend relevant articles to users based on their reading history and preferences, leveraging advanced data processing and machine learning techniques. The system also enriches article recommendations with visually appealing images sourced from Unsplash.</p>
   <br>
-  <p>View my project code on <a href="https://github.com/tristenwallace/IBM_article_recommender">github</a></p>
-{% endblock header %}
+  <p>View my project code on <a href="https://github.com/tristenwallace/IBM_article_recommender" target="_blank">GitHub</a>.</p>
+{% endblock %}
 
 {% block content %}
-  <div class="card border-dark mb-3">
-    <div class="card-header"><h3>Tech Stack</h3></div>
-    <div class="card-body text-dark">
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet</p>
+  <div class="container mt-4">
+    <div class="card border-dark mb-3">
+      <div class="card-header"><h3>Tech Stack</h3></div>
+      <div class="card-body text-dark">
+        <h5 class="card-title">Flask</h5>
+        <p class="card-text">The web framework used for building the application, providing the necessary infrastructure for web requests, routing, and templating.</p>
 
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet</p>
+        <h5 class="card-title">Pandas</h5>
+        <p class="card-text">Utilized for efficient data manipulation and analysis, particularly for handling the articles and user interactions datasets.</p>
 
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet</p>
+        <h5 class="card-title">Scikit-learn</h5>
+        <p class="card-text">Empowers the recommender system with machine learning capabilities, including TF-IDF vectorization and cosine similarity for article recommendations.</p>
 
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet</p>
+        <h5 class="card-title">NLTK</h5>
+        <p class="card-text">Used in the image search functionality to process and refine article titles into keywords for improved image search relevance.</p>
 
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet</p>
+        <h5 class="card-title">Unsplash API</h5>
+        <p class="card-text">Provides access to high-quality images to enhance the article recommendations with visually relevant imagery.</p>
+      </div>
+    </div>
 
+    <div class="card border-dark mb-3">
+      <div class="card-header"><h3>How It Works</h3></div>
+      <div class="card-body text-dark">
+        <p class="card-text">The Article Recommender system analyzes user-article interaction data to understand user preferences. It then creates a profile for each article using TF-IDF vectorization, capturing the essence of articles based on their titles and descriptions.</p>
+        
+        <h5 class="card-title">Recommending Articles</h5>
+        <p class="card-text">For a given user, the system computes cosine similarity between articles the user has interacted with and all other articles to identify and recommend the most similar, unread articles.</p>
+        
+        <h5 class="card-title">Enhancing Recommendations with Images</h5>
+        <p class="card-text">Using refined keywords extracted from article titles, the system queries the Unsplash API to fetch relevant images, adding a visual dimension to the recommendations presented to the user.</p>
+      </div>
+    </div>
+
+    <div class="card border-dark mb-3">
+      <div class="card-header"><h3>Future Considerations</h3></div>
+      <div class="card-body text-dark">
+        <h5 class="card-title">Personalization</h5>
+        <p class="card-text">Enhancing the recommender to include more personalized features based on user profiles, reading habits, and feedback.</p>
+
+        <h5 class="card-title">Performance Optimization</h5>
+        <p class="card-text">Improving the efficiency and scalability of the system, especially in handling large datasets and high user loads.</p>
+
+        <h5 class="card-title">Expanded Content Sources</h5>
+        <p class="card-text">Incorporating a broader range of content sources to diversify the articles and recommendations available to users.</p>
+
+        <h5 class="card-title">Advanced NLP Techniques</h5>
+        <p class="card-text">Leveraging more advanced natural language processing techniques to improve the relevance and accuracy of both article recommendations and image searches.</p>
+      </div>
     </div>
   </div>
-
-  <div class="card border-dark mb-3">
-    <div class="card-header"><h3>How it works</h3></div>
-    <div class="card-body text-dark">
-      <p class="card-text">Lorem ipsum dolor sit amet</p>
-    
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet
-      </p>
-      
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet</p>
-      
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet
-      </p>
-      
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet</p>    
-    </div>
-  </div>
-
-  <div class="card border-dark mb-3">
-    <div class="card-header"><h3>Future Considerations</h3></div>
-    <div class="card-body text-dark">
-      <p class="card-text">Lorem ipsum dolor sit amet</p>
-
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet
-      </p>
-
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet
-      </p>
-
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet
-      </p>
-
-      <h5 class="card-title">header</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet
-      </p>
-
-{% endblock content %}
+{% endblock %}
 

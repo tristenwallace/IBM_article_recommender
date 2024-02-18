@@ -5,22 +5,53 @@
 {% block message %}
     <hr />
     <h4 class="text-center">Article Recommendations for user:</h4>
-    <p class="text-center"><i>{{query}}</i></p>
+    <p class="text-center"><i>{{user_id}}</i></p>
 {% endblock %}
 
 {% block content %}
-    <h1 class="text-center">Read Articles</h1>
-        <ul class="list-group">
-            {% for article in read_articles %}
-                <li class="list-group-item list-group-item-success text-center">{{article}}</li>
+    <div class="container mt-4">
+        <h2>Recommended Articles</h2>
+        <div class="row">
+            {% for index, row in rec_articles.iterrows() %}
+                <div class="col-sm-4 mb-4">
+                    <img class="card-img-top img-fluid" src= {{ row.img }} alt="Card image cap">
+                    <div class="card border mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title">{{ row['doc_full_name'] }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <!-- Truncate the description to a maximum length, e.g., 100 characters -->
+                            <p class="card-text">{{ row['doc_description'][:100] }}{% if row['doc_description']|length > 100 %}...{% endif %}</p>
+                    </div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
-    </div>
-    <h1 class="text-center">Recommended Articles</h1>
-        <ul class="list-group">
-            {% for article in rec_articles %}
-                <li class="list-group-item list-group-item-success text-center">{{article}}</li>
-            {% endfor %}
+        
+        <hr />
+        <h2>Read Articles</h2>
+        <div class="row">
+            {% if read_articles.empty %}
+                <p>User {{query}} must be new because they have not
+                    read any articles. This is an example of the cold start 
+                    problem. Recommended artiles are just the articles
+                    with the most interactions (rank-based).</p>
+            {% else %}
+                {% for index, row in read_articles.iterrows() %}
+                    <div class="col-sm-4 mb-4">
+                        <div class="card border mb-4">
+                            <img class="card-img-top img-fluid" src= {{ row.img }} alt="Card image cap">
+                            <div class="card-header">
+                                <h5 class="card-title">{{ row['doc_full_name'] }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- Truncate the description to a maximum length, e.g., 100 characters -->
+                                <p class="card-text">{{ row['doc_description'][:100] }}{% if row['doc_description']|length > 100 %}...{% endif %}</p>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 {% endblock content%}

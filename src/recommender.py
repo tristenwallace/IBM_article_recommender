@@ -62,9 +62,22 @@ class ArticleRecommender:
         top_n (int): Number of top articles to return.
         """
         
-        top_articles_names = self.interactions_df.groupby('title')['user_id'].count().sort_values(ascending=False)[:top_n].index
-        top_articles_ids = self.interactions_df.groupby('article_id')['user_id'].count().sort_values(ascending=False)[:top_n].index
+        top_articles_ids = self.interactions_df.groupby('article_id')['user_id'].count().sort_values(ascending=False).index
 
-        recommendations = pd.DataFrame({'article_id': top_articles_ids, 'doc_full_name': top_articles_names})
+        top_live_articles_ids = []
+        top_live_articles_names = []
+
+        for article_id in top_articles_ids:
+            # Check if the current article_id exists in the DataFrame
+            print(article_id)
+            if article_id in self.articles_df['article_id'].values:
+                top_live_articles_ids.append(article_id)
+                top_live_articles_names.append(self.articles_df[self.articles_df['article_id'] == article_id]['doc_full_name'])
+                
+                # Break the loop if we have found enough articles
+                if len(top_live_articles_ids) >= top_n:
+                    break
+
+        recommendations = pd.DataFrame({'article_id': top_live_articles_ids, 'doc_full_name': top_live_articles_names})
         
         return recommendations  
