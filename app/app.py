@@ -42,13 +42,13 @@ def response():
     top_n = 2
     
     # use model to predict classification for query
-    rec_article_ids = recommender.recommend_articles(int(user_id), top_n=top_n)['article_id'].values
+    rec_article_ids = recommender.recommend_articles(int(user_id), top_n=3)['article_id'].values
     rec_articles = articles[articles['article_id'].isin(rec_article_ids)]
     rec_articles['img'] = rec_articles.doc_full_name.apply(lambda title: search_image(title, width=600, height=400))
     
     # Get df of read articles for creating cards in go.html
     read_article_ids = interactions[interactions['user_id'] == int(user_id)]['article_id'].unique()
-    read_articles = articles[articles['article_id'].isin(read_article_ids)][:top_n]
+    read_articles = articles[articles['article_id'].isin(read_article_ids)][:6]
     read_articles['img'] = read_articles.doc_full_name.apply(lambda title: search_image(title, width=600, height=400))
 
     
