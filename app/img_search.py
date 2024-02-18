@@ -38,7 +38,7 @@ def extract_keywords(title):
 
 def search_image(query, width=None, height=None):
     # Replace 'YOUR_ACCESS_KEY' with your actual Unsplash access key
-    access_key = os.environ.get('unsplash_access_key')
+    access_key = os.environ.get('UNSPLASH_ACCESS_KEY')
     print(access_key)
     url = 'https://api.unsplash.com/search/photos'
     params = {

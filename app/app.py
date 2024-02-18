@@ -1,6 +1,7 @@
-import sys
-sys.path.append('../src/')
+from dotenv import load_dotenv
+load_dotenv()
 
+import os
 from flask import Flask
 from flask import render_template, request
 import pandas as pd
@@ -10,9 +11,13 @@ from img_search import search_image
 
 app = Flask(__name__)
 
-# load data
-interactions = pd.read_feather('../data/interactions.feather')
-articles = pd.read_feather('../data/articles.feather')
+# Use environment variables to get the paths
+interactions_data_path = os.environ.get('INTERACTIONS_DATA_PATH')
+articles_data_path = os.environ.get('ARTICLES_DATA_PATH')
+
+# Load data using the paths from environment variables
+interactions = pd.read_feather(interactions_data_path)
+articles = pd.read_feather(articles_data_path)
 
 # Initialize the recommender
 recommender = ArticleRecommender(articles, interactions)
