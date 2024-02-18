@@ -6,6 +6,7 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('stopwords')
+import os
 
 placeholder_images = [
     'https://images.unsplash.com/photo-1525338078858-d762b5e32f2c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -31,13 +32,14 @@ def extract_keywords(title):
 
     tagged = nltk.pos_tag(words)
     keywords = [word for word, tag in tagged if tag in ('NN', 'NNS', 'NNP', 'NNPS', 'JJ')]
-    print(' '.join(keywords))
+
     return ' '.join(keywords)
 
 
 def search_image(query, width=None, height=None):
     # Replace 'YOUR_ACCESS_KEY' with your actual Unsplash access key
-    access_key = unsplash_access_key
+    access_key = os.environ.get('unsplash_access_key')
+    print(access_key)
     url = 'https://api.unsplash.com/search/photos'
     params = {
         'query': extract_keywords(query),
