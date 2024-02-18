@@ -1,12 +1,15 @@
 import requests
 import numpy as np
+import os
+
+# Set NLTK_DATA environment variable to point to the local nltk_data directory
+nltk_data_path = os.path.join(os.getcwd(), 'nltk_data')
+os.environ['NLTK_DATA'] = nltk_data_path
+
 import nltk
 from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize, sent_tokenize
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('stopwords')
-import os
+from nltk.tokenize import word_tokenize
+
 
 placeholder_images = [
     'https://images.unsplash.com/photo-1525338078858-d762b5e32f2c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
