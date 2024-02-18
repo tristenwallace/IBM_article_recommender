@@ -20,7 +20,9 @@ placeholder_images = [
     'https://images.unsplash.com/photo-1692607334827-4da64dcf2221?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA3fHxhaXxlbnwwfHwwfHx8MA%3D%3D',
     'https://images.unsplash.com/photo-1599941662219-f95e5d125ce7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE0fHxhaXxlbnwwfHwwfHx8MA%3D%3D',
     'https://images.unsplash.com/photo-1677442135131-4d7c123aef1c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM0fHxhaXxlbnwwfHwwfHx8MA%3D%3D',
-    'https://images.unsplash.com/photo-1676411237170-ddca6e4c158a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMyfHxhaXxlbnwwfHwwfHx8MA%3D%3D'
+    'https://images.unsplash.com/photo-1676411237170-ddca6e4c158a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMyfHxhaXxlbnwwfHwwfHx8MA%3D%3D',
+    'https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGF0YXxlbnwwfHwwfHx8MA%3D%3D',
+    'https://images.unsplash.com/photo-1495592822108-9e6261896da8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGRhdGF8ZW58MHx8MHx8fDA%3D'
 ]
 
 def extract_keywords(title):
